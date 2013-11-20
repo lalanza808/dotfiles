@@ -1,0 +1,72 @@
+### Conky configuration file
+## Output is printed to console for use in i3bar
+## Created 10/31/2013
+ 
+## output to X server
+out_to_x no
+ 
+## Create own window
+own_window no
+ 
+## Send output to console
+out_to_console yes
+ 
+## Use double buffering...not need for console
+double_buffer no
+ 
+## Fork to background?
+background no
+ 
+## Times to run til quit. 0 = infinite
+total_run_times 0
+ 
+## Update interval in secs
+update_interval 3.0
+ 
+## Shorten units to single char (GiB -> G, KiB -> k)
+short_units yes
+ 
+## if_up strictness set to only show if assigned IP address
+if_up_strictness address
+ 
+## Add spaces to keep things from moving?
+use_spacer left
+ 
+## Force UTF8?
+override_utf8_locale no
+ 
+## number of cpu samples to average
+## set to 1 to disable averaging
+cpu_avg_samples 4
+ 
+# things after TEXT will be printed to console
+TEXT
+[
+	{
+                "full_text": "WLAN",
+                "color": "\#F5F6CE"
+        },
+        {
+                "full_text": "${if_existing /sys/class/net/wlan0/operstate up}${wireless_essid wlan0}${wireless_link_qual wlan0}% ${addr wlan0}${else}nope${endif}",
+                "color": "\#00d7db"
+        },
+	{	"full_text": "LAN",
+		"color": "\#F5F6CE"
+	},
+	{
+		"full_text": "${if_existing /sys/class/net/eth0/operstate up} ${addr eth0}${else}nope${endif}",
+		"color": "\#00d7db"
+	},
+        {
+                "full_text": "BATT",
+                "color": "\#F5F6CE"
+        },
+        {
+                "full_text": "${battery_short BAT0} ${battery_time BAT0}",
+                "color": "\#00d7db"
+        },
+        {
+                "full_text": "${time %b %-d %-l:%M%p}",
+                "color": "\#F5F6CE"
+        }
+],
