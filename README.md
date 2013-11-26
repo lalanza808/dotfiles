@@ -1,1 +1,1 @@
-dot files used for recent Debian net install
+dot files, for use when using new linux machines. 

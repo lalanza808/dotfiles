@@ -48,14 +48,14 @@ TEXT
         },
         {
                 "full_text": "${if_existing /sys/class/net/wlan0/operstate up}${wireless_essid wlan0}${wireless_link_qual wlan0}% ${addr wlan0}${else}nope${endif}",
-                "color": "\#00d7db"
+                "color": "\#FF0000"
         },
 	{	"full_text": "LAN",
 		"color": "\#F5F6CE"
 	},
 	{
-		"full_text": "${if_existing /sys/class/net/eth0/operstate up} ${addr eth0}${else}nope${endif}",
-		"color": "\#00d7db"
+		"full_text": "${if_existing /sys/class/net/eth0/operstate up} ${addr eth0}${else}down${endif}",
+		"color": "\#FF0000"
 	},
         {
                 "full_text": "BATT",
@@ -63,7 +63,7 @@ TEXT
         },
         {
                 "full_text": "${battery_short BAT0} ${battery_time BAT0}",
-                "color": "\#00d7db"
+                "color": "\#FF0000"
         },
         {
                 "full_text": "${time %b %-d %-l:%M%p}",
