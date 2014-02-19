@@ -1,0 +1,5 @@
+screen -t zsh
+
+startup_message off
+escape ``
+hardstatus alwayslastline "%{b kw}%H %{r}%1` %{w}| %{-b kw}%u %-Lw%{= rW}%50> %n%f %t %{-}%+Lw%<"

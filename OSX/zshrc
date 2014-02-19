@@ -1,0 +1,56 @@
+autoload -U compinit promptinit
+compinit
+promptinit
+autoload -U colors && colors
+PROMPT="%{$fg[cyan]%}%n@%m%# %{$reset_color%}"
+RPROMPT="%{$fg[cyan]%}[ %{$reset_color%}%~%{$fg[cyan]%} ]%{$reset_color%}"
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+export LSCOLORS=GxdxAxDxCx
+setopt APPEND_HISTORY
+cat "$HOME/.banner"
+#------------------------------
+# Aliases
+#------------------------------
+
+alias ytdl='youtube-dl "$(pbpaste)" --recode-video mp4 && growlnotify -m "YTDL done."'
+alias l='ls -GF'
+alias ll='ls -SlGF'
+alias la='ls -aGF'
+alias ls='ls -GF'
+alias vpr='vim $HOME/.zshrc && source $HOME/.zshrc'
+alias trl='transmission-remote --list'
+alias transr='transmission-remote'
+alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
+alias getit='echo "Getting $(pbpaste)" && wget "$(pbpaste)"'
+alias x='exit'
+#------------------------------
+# Functions
+#------------------------------
+
+
+tether() {
+ssh -p 9007 -D 8080 mobile@las-iphone.local -f -N -i ~/.ssh/phone.key
+}
+
+go() {
+cd "$1"
+ls
+}
+
+define() {
+if [[ $# -ge 2 ]] then
+    echo "Too many arguments" >&2
+    return 1
+else
+    curl -s "dict://dict.org/d:$1"
+fi
+}
+
+md() {
+mkdir "$@" && cd "$@"
+}
+
+del() {
+for i in "$@"; do mv "${i}" "/Users/lance/.Trash/"; echo "[+]Deleting ${i}..."; done
+}
+
