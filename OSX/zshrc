@@ -8,12 +8,18 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 export LSCOLORS=GxdxAxDxCx
 setopt APPEND_HISTORY
 cat "$HOME/.banner"
+
 #------------------------------
 # Aliases
 #------------------------------
 
+alias gc='git commit -m'
+alias todo='vim ~/TODO'
+alias sgit='eval $(ssh-agent) && ssh-add ~/.ssh/git.key'
+alias psgrep='ps aux | grep'
 alias ytdl='youtube-dl "$(pbpaste)" --recode-video mp4 && growlnotify -m "YTDL done."'
-alias l='ls -GF'
+alias gn='growlnotify -m'
+alias l='ls -lGF'
 alias ll='ls -SlGF'
 alias la='ls -aGF'
 alias ls='ls -GF'
@@ -23,34 +29,22 @@ alias transr='transmission-remote'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias getit='echo "Getting $(pbpaste)" && wget "$(pbpaste)"'
 alias x='exit'
+
 #------------------------------
 # Functions
 #------------------------------
 
 
-tether() {
-ssh -p 9007 -D 8080 mobile@las-iphone.local -f -N -i ~/.ssh/phone.key
+md()
+{
+	mkdir "$@" && cd "$@"
 }
 
-go() {
-cd "$1"
-ls
-}
-
-define() {
-if [[ $# -ge 2 ]] then
-    echo "Too many arguments" >&2
-    return 1
-else
-    curl -s "dict://dict.org/d:$1"
-fi
-}
-
-md() {
-mkdir "$@" && cd "$@"
-}
-
-del() {
-for i in "$@"; do mv "${i}" "/Users/lance/.Trash/"; echo "[+]Deleting ${i}..."; done
+del()
+{
+	for i in "$@"
+	do mv "${i}" "/Users/lance/.Trash/"
+	echo "[+]Deleting ${i}..."
+	done
 }
 
