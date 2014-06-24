@@ -1,1 +1,1 @@
-dot files, for use when using new linux machines. 
+Dot files for new *nix machines
