@@ -11,12 +11,12 @@
 
 # Load skull banner
 function loadBanner(){
-	cat bling/banner.txt
+	cat ~/.bash/inc/bling/banner.txt
 }
 
 # Run encrypt_shell.py for cool loading text
 function loadEncryptShell(){
-	python bling/encrypt_shell.py
+	python ~/.bash/inc/bling/encrypt_shell.py
 }
 
 
@@ -34,7 +34,7 @@ RESET=$(tput sgr0)
 # Prompts
 
 # Old lambda PS1. Clean look
-function loadLambdaPrompt(){}
+function loadLambdaPrompt(){
 	if [[ -n "${SSH_CONNECTION}" ]]
 	then
 		echo -e "\n${YEL}$(whoami)@$(hostname)"

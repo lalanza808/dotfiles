@@ -4,7 +4,7 @@
 # Loads .rc files in nested folders
 # github.com/lalanza808
 
-for file in inc/*.rc
+for file in ~/.bash/inc/*.rc
 do
 	source ${file}
 done
