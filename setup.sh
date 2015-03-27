@@ -23,12 +23,13 @@ read -n 1 -p "[y|n] " answer
 if [[ ${answer} == 'y' || ${answer} == 'Y' ]]
 then
 	echo -e "[.] Copying rc files over to ~/.bash/\n\n"
-	cp -r -f ./bash ~/.bash
+	cp -r -f bash ~/.bash
 	sleep 1
 	#
 	echo -e "[.] Copying necessary configs\n\n"
 	cp -f ~/.bash/configs/.vimrc ~/.vimrc
 	cp -f ~/.bash/.bashrc ~/.bashrc
+	cp -f ~/.bash/configs/.screenrc ~/.screenrc
 	sleep 1
 	#
 	echo -e "[.] Sourcing new .bashrc"
