@@ -1,0 +1,22 @@
+#############################################
+# settings.rc
+
+# Terminal settings
+
+##########
+# Settings
+
+# Ignore case on files
+bind "set completion-ignore-case on"
+
+# LS colors
+export LSCOLORS=GxdxAxDxCx
+
+# Best editor
+export EDITOR=$(which vim)
+
+# Update path to ~/bin
+export PATH=$PATH:~/bin
+
+# Ansible hosts (laptop only)
+export ANSIBLE_HOSTS=/home/lance/ansible/hosts

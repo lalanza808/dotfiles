@@ -1,0 +1,67 @@
+#################################
+# Prompt.rc
+
+# Include this file for a custom bash prompt (PS1)
+# Be sure to call the function of the prompt you want
+
+##########
+# Bling
+
+# Flashy text/info to load on new shells
+
+# Load skull banner
+function loadBanner(){
+	cat bling/banner.txt
+}
+
+# Run encrypt_shell.py for cool loading text
+function loadEncryptShell(){
+	python bling/encrypt_shell.py
+}
+
+
+##########
+# Colors
+
+BOLD=$(tput bold)
+RED=$(tput setaf 1)
+MAG=$(tput setaf 5)
+CYA=$(tput setaf 6)
+YEL=$(tput setaf 3)
+RESET=$(tput sgr0)
+
+##########
+# Prompts
+
+# Old lambda PS1. Clean look
+function loadLambdaPrompt(){}
+	if [[ -n "${SSH_CONNECTION}" ]]
+	then
+		echo -e "\n${YEL}$(whoami)@$(hostname)"
+		PS1="${YEL}λ ${RESET}"
+	elif [[ "${UID}" == 0 ]]
+	then
+		echo -e "\n${RED}$(whoami)@$(hostname)"
+		PS1="${RED}λ ${RESET}"
+	else
+		PS1="${CYA}λ ${RESET}"
+	fi
+}
+
+
+# Old faithful user@host [ $(pwd) ] $
+function loadOldFaithful(){
+	PS1="\[${BOLD}\]\[${CYA}\]\u@${MAG}\h ${CYA}[ \W ] > \[${RESET}\]"
+}
+
+
+
+
+##########
+# Selection
+
+# Call function of the prompt you want here
+
+loadOldFaithful
+
+loadEncryptShell

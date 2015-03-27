@@ -1,0 +1,64 @@
+#################################
+# functions.rc
+
+# Include this file for a custom functions for calling in the shell
+# Anything that is too big for an alias, or multiple commands in one
+
+##########
+# Functions
+
+# Echo text in the center of the terminal
+center(){
+	local string="$1"
+	local mid=$(((${#string}+$COLUMNS)/2))
+	local leftspace=$((${mid}-${#string}))
+	printf "%-*s%s\n" ${leftspace} " " "${string}"
+}
+
+# Make directory and navigate into it
+function md() {
+	mkdir -p "$@" && cd "$@"
+}
+
+# Move item to /tmp
+function del() {
+mkdir -p /tmp/Trash/
+for i in "$@"; do mv "$i" /tmp/Trash/; echo "[+]Deleting $i..."; done
+}
+
+# Load git SSH key into SSH-agent session
+function sgit(){
+	eval $(ssh-agent)
+	ssh-add ~/.ssh/git.key
+}
+
+# Auto build, add, commit, and push Jekyll repo
+deployjekyll(){
+	jekyll build -s ~/jekyll -d ~/git/lalanza808.github.io/
+	pushd ~/git/lalanza808.github.io
+	git add -A
+	git commit -m "Auto added $(date): $1"
+	git push origin master
+	popd
+}
+
+# Auto add, commit, and push local site repo to production server
+updatesite(){
+	pushd /usr/share/nginx/html
+	git add -A
+	git commit -m "Auto added $(date): $1"
+	git push
+	popd
+}
+
+# Send email to myself
+notify(){
+	sendmail -t << EOF
+From: LZA <lrallen03@gmail.com>
+To: Lance <lrallen03@gmail.com>
+Subject: Notification From $(hostname)
+
+$1
+
+EOF
+}
