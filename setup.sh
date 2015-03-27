@@ -18,7 +18,7 @@ sleep 3
 
 echo -e "[!] Proceed?\n"
 
-read answer -n 1 -p "[y|n] "
+read -n 1 -p "[y|n] " answer
 
 if [[ ${answer} == 'y' || ${answer} == 'Y' ]]
 then
@@ -36,7 +36,7 @@ then
 	sleep 1
 	#
 	echo -e "[+] Done!\n\nEnjoi\n\n"
-	sleep 1
+	sleep 3
 	clear
 fi
 
