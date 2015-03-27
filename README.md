@@ -1,3 +1,5 @@
-Dot files for new *nix machines
+# Dots
 
-Run script to link to home
+Config files for terminal and applications
+
+Clone repo and run setup.sh
