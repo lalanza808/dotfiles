@@ -63,5 +63,3 @@ function loadOldFaithful(){
 # Call function of the prompt you want here
 
 loadOldFaithful
-
-loadEncryptShell
