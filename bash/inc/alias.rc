@@ -19,6 +19,9 @@ alias sshc="$EDITOR ~/.ssh/config"
 alias trl="transmission-remote --list"
 alias ..="cd .."
 alias wgetnck="wget --no-check-certificate"
+alias gco="git checkout -b"
+alias gcm="git commit && git push origin"
+alias gup="git checkout master && git pull origin master && git fetch -a"
 
 ##########
 # Aliases
@@ -37,4 +40,3 @@ alias sctl="sudo systemctl"
 alias update="sudo apt-get update -y && sudo apt-get upgrade -y"
 alias sear="apt-cache search $1"
 alias ins="sudo apt-get install $1"
-
