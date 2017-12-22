@@ -8,7 +8,7 @@
 echo -e "#"
 
 echo -e "[.] Copying rc files over to ~/.bash/\n\n"
-rsync -avz --delete ./bash/ ~/.bash/
+rsync -avz --delete .bash_repo/ ~/.bash/
 sleep 1
 #
 echo -e "[.] Copying necessary configs\n\n"
