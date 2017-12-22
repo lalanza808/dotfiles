@@ -3,8 +3,7 @@
 
 # Custom aliases for often run commands
 
-##########
-# Aliases
+
 # System Independent
 
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
@@ -18,10 +17,9 @@ alias x="exit"
 alias sshc="$EDITOR ~/.ssh/config"
 alias trl="transmission-remote --list"
 alias ..="cd .."
-alias wgetnck="wget --no-check-certificate"
+alias gcm='git add -A && git commit && git push origin $1'
 
-##########
-# Aliases
+
 # Fedora/Centos
 
 alias yumi="sudo yum install $1"
@@ -30,11 +28,14 @@ alias yume="sudo yum erase $1"
 alias yumu="sudo yum update"
 alias sctl="sudo systemctl"
 
-##########
-# Aliases
+
 # Debian/Ubuntu
 
 alias update="sudo apt-get update -y && sudo apt-get upgrade -y"
 alias sear="apt-cache search $1"
 alias ins="sudo apt-get install $1"
 
+
+# OSX
+
+alias flushdns='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder && say cache flushed'

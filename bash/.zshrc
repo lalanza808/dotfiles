@@ -15,7 +15,7 @@ cat "$HOME/.banner"
 
 alias gc='git commit -m'
 alias todo='vim ~/TODO'
-alias sgit='eval $(ssh-agent) && ssh-add ~/.ssh/git.key'
+alias sgit='eval $(ssh-agent) && ssh-add ~/.ssh/gitlab.key'
 alias psgrep='ps aux | grep'
 alias ytdl='youtube-dl "$(pbpaste)" --recode-video mp4 && growlnotify -m "YTDL done."'
 alias gn='growlnotify -m'
@@ -25,10 +25,12 @@ alias la='ls -aGF'
 alias ls='ls -GF'
 alias vpr='vim $HOME/.zshrc && source $HOME/.zshrc'
 alias trl='transmission-remote --list'
-alias transr='transmission-remote'
+alias trr='transmission-remote'
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
 alias getit='echo "Getting $(pbpaste)" && wget "$(pbpaste)"'
 alias x='exit'
+alias flushdns='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder && say cache flushed'
+alias gcm='git add -A && git commit && git push origin $1'
 
 #------------------------------
 # Functions
@@ -47,4 +49,3 @@ del()
 	echo "[+]Deleting ${i}..."
 	done
 }
-
