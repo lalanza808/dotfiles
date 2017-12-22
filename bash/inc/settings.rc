@@ -7,7 +7,7 @@
 # Settings
 
 # Ignore case on files
-bind "set completion-ignore-case on"
+#bind "set completion-ignore-case on"
 
 # LS colors
 export LSCOLORS=GxdxAxDxCx

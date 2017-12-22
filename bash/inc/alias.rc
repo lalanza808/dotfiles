@@ -17,8 +17,10 @@ alias x="exit"
 alias sshc="$EDITOR ~/.ssh/config"
 alias trl="transmission-remote --list"
 alias ..="cd .."
-alias gcm='git add -A && git commit && git push origin $1'
-
+alias wgetnck="wget --no-check-certificate"
+alias gco="git checkout -b"
+alias gcm="git commit && git push origin"
+alias gup="git checkout master && git pull origin master && git fetch -a"
 
 # Fedora/Centos
 
