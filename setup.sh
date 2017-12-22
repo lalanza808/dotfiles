@@ -17,12 +17,9 @@ cp -f ~/.bash/.bashrc ~/.bashrc
 cp -f ~/.bash/configs/.screenrc ~/.screenrc
 cp -f ~/.bash/configs/.tmux.conf ~/.tmux.conf
 echo "source ~/.bashrc" > ~/.bash_profile
-sleep 3
+sleep 1
 #
-echo -e "[.] Sourcing new .bashrc\n\n"
-source ~/.bashrc
-sleep 3
+echo -e "[+] Done!"
+sleep 1
+
 #
-echo -e "[+] Done!\n\nEnjoi\n\n"
-sleep 3
-clear
