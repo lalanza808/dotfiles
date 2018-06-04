@@ -21,6 +21,7 @@ alias wgetnck="wget --no-check-certificate"
 alias gco="git checkout -b"
 alias gcm="git commit && git push origin"
 alias gup="git checkout master && git pull origin master && git fetch -a"
+alias gisquash='git reset --soft HEAD~$(git rev-list --count HEAD ^master)'
 
 # Fedora/Centos
 
